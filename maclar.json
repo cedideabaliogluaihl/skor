@@ -1,5 +1,20 @@
 [
   {
+    "id": 1775832844663,
+    "tarih": "2025-05-10",
+    "tur": "Süper Lig",
+    "takim1": "Gaziantep FK",
+    "takim2": "Beşiktaş",
+    "skor1": 0,
+    "skor2": 2,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "ali",
+      "sergen"
+    ],
+    "not": ""
+  },
+  {
     "id": 1775832779459,
     "tarih": "2025-06-14",
     "tur": "Süper Lig",
