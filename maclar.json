@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1775820067903,
+    "tarih": "2026-04-10",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Rizespor",
+    "skor1": 2,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "ali",
+      "metin"
+    ],
+    "not": ""
+  }
+]
