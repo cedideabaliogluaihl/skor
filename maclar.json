@@ -2,30 +2,15 @@
   {
     "id": 1775820113142,
     "tarih": "2026-01-10",
-    "tur": "Süper Lig",
+    "tur": "SÃ¼per Lig",
     "takim1": "Sivasspor",
-    "takim2": "Beşiktaş JK",
+    "takim2": "BeÅiktaÅ JK",
     "skor1": 1,
     "skor2": 3,
-    "sonuc": "—",
+    "sonuc": "â",
     "golcular": [
       "sergen",
       "metin",
-      "metin"
-    ],
-    "not": ""
-  },
-  {
-    "id": 1775820067903,
-    "tarih": "2026-04-10",
-    "tur": "Süper Lig",
-    "takim1": "Beşiktaş",
-    "takim2": "Rizespor",
-    "skor1": 2,
-    "skor2": 0,
-    "sonuc": "Galibiyet",
-    "golcular": [
-      "ali",
       "metin"
     ],
     "not": ""
