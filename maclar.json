@@ -1,16 +1,32 @@
 [
   {
-    "id": 1775814972814,
+    "id": 1775819942564,
     "tarih": "2026-04-10",
     "tur": "Süper Lig",
-    "rakip": "eskişehir",
+    "takim1": "Beşiktaş",
+    "takim2": "kayseri",
+    "skor1": 30,
+    "skor2": 1,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "sergen",
+      "kadir",
+      "feyyaz"
+    ],
+    "not": ""
+  },
+  {
+    "id": 1775814972814,
+    "tarih": "2026-04-10",
+    "tur": "SÃ¼per Lig",
+    "rakip": "eskiÅehir",
     "ev": "Deplasman",
     "bizSkor": 2,
     "rakSkor": 0,
     "sonuc": "Galibiyet",
     "golcular": [
       "ismail aslan",
-      "ertuğrul dağdelen"
+      "ertuÄrul daÄdelen"
     ],
     "not": ""
   }
