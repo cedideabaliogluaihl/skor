@@ -1,21 +1,5 @@
 [
   {
-    "id": 1775819996849,
-    "tarih": "2026-04-10",
-    "tur": "Süper Lig",
-    "takim1": "Beşiktaş",
-    "takim2": "Kayserispor",
-    "skor1": 3,
-    "skor2": 0,
-    "sonuc": "Galibiyet",
-    "golcular": [
-      "sergen",
-      "ali",
-      "metin"
-    ],
-    "not": ""
-  },
-  {
     "id": 1775819942564,
     "tarih": "2026-04-10",
     "tur": "Süper Lig",
