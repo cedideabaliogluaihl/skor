@@ -1,5 +1,24 @@
 [
   {
+    "id": 1775979525863,
+    "tarih": "2019-03-19",
+    "sezon": "2019-20",
+    "tur": "Süper Lig",
+    "takim1": "FENERBAHÇE",
+    "takim2": "BJK",
+    "skor1": 0,
+    "skor2": 5,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "FEYYAZ",
+      "FEYYAZ",
+      "METİN",
+      "ALİ",
+      "FEYYAZ"
+    ],
+    "not": ""
+  },
+  {
     "id": 1775979406342,
     "tarih": "2025-01-11",
     "sezon": "2024-25",
