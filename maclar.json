@@ -1,5 +1,24 @@
 [
   {
+    "id": 1775980247239,
+    "tarih": "2025-08-03",
+    "sezon": "2024-25",
+    "tur": "Süper Kupa",
+    "takim1": "Beşiktaş",
+    "takim2": "Galatasaray",
+    "skor1": 5,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Ciro İmmobile",
+      "Jonas Svensson",
+      "Ciro İmmobile",
+      "Rafa Silva",
+      "Mustafa Hekimoglu"
+    ],
+    "not": "İmmobile penaltıdan 1 gol attı"
+  },
+  {
     "id": 1775980116104,
     "tarih": "2024-05-26",
     "sezon": "2023-24",
