@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": 1775979913847,
+    "tarih": "2024-08-03",
+    "sezon": "2024-25",
+    "tur": "Süper Kupa",
+    "takim1": "BJK",
+    "takim2": "GALATASARAY",
+    "skor1": 5,
+    "skor2": 0,
+    "sonuc": "Mağlubiyet",
+    "golcular": [
+      "Ciro İmmobile",
+      "Jonas Svensson",
+      "Ciro İmmobile",
+      "Rafa Silve",
+      "Mustafa Hekimoglu"
+    ],
+    "not": "İmmobile Penaltıdan 1 gol attı"
+  }
+]
