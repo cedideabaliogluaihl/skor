@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": 1776002639470,
+    "tarih": "2026-04-12",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Galatasaray",
+    "skor1": 3,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Orkun Kokcu",
+      "Orkun Kokcu",
+      "Orkun Kokcu"
+    ],
+    "not": ""
+  }
+]
