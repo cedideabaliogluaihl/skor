@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776028208237,
+    "tarih": "2024-10-03",
+    "sezon": "2024-25",
+    "tur": "Avrupa Ligi",
+    "takim1": "Beşiktaş",
+    "takim2": "Eintracht Frankfurt",
+    "skor1": 1,
+    "skor2": 3,
+    "sonuc": "Mağlubiyet",
+    "golcular": [
+      "Arthur Masuaku"
+    ],
+    "not": "+3"
+  },
+  {
     "id": 1776028125717,
     "tarih": "2024-09-30",
     "sezon": "2024-25",
