@@ -4,7 +4,7 @@
     "tarih": "2023-09-21",
     "sezon": "2023-24",
     "tur": "Konferans Ligi",
-    "takim1": "BeÅiktaÅ",
+    "takim1": "BeÃÂiktaÃÂ",
     "takim2": "Club Brugge",
     "skor1": 1,
     "skor2": 1,
@@ -18,8 +18,8 @@
     "id": 1775982458469,
     "tarih": "2023-10-01",
     "sezon": "2023-24",
-    "tur": "SÃ¼per Lig",
-    "takim1": "BeÅiktaÅ",
+    "tur": "SÃÂ¼per Lig",
+    "takim1": "BeÃÂiktaÃÂ",
     "takim2": "Konyaspor",
     "skor1": 2,
     "skor2": 0,
@@ -34,12 +34,12 @@
     "id": 1775982313862,
     "tarih": "2023-09-27",
     "sezon": "2023-24",
-    "tur": "SÃ¼per Lig",
-    "takim1": "BeÅiktaÅ",
+    "tur": "SÃÂ¼per Lig",
+    "takim1": "BeÃÂiktaÃÂ",
     "takim2": "Adanademirspor",
     "skor1": 2,
     "skor2": 4,
-    "sonuc": "MaÄlubiyet",
+    "sonuc": "MaÃÂlubiyet",
     "golcular": [
       "Vincent Aboubakar",
       "Milot Rashica"
@@ -50,8 +50,8 @@
     "id": 1775980374159,
     "tarih": "2025-08-11",
     "sezon": "2024-25",
-    "tur": "SÃÂ¼per Lig",
-    "takim1": "BeÃÂiktaÃÂ",
+    "tur": "SÃÂÃÂ¼per Lig",
+    "takim1": "BeÃÂÃÂiktaÃÂÃÂ",
     "takim2": "Samsunspor",
     "skor1": 2,
     "skor2": 0,
@@ -66,12 +66,12 @@
     "id": 1775980247239,
     "tarih": "2025-08-03",
     "sezon": "2024-25",
-    "tur": "Süper Kupa",
-    "takim1": "BeÅiktaÅ",
+    "tur": "SÃ¼per Kupa",
+    "takim1": "BeÃÂiktaÃÂ",
     "takim2": "Galatasaray",
     "skor1": 5,
     "skor2": 0,
-    "sonuc": "Mağlubiyet",
+    "sonuc": "MaÄlubiyet",
     "golcular": [
       "Ciro Immobile",
       "Jonas Svensson",
@@ -80,22 +80,5 @@
       "Mustafa Hekimoglu"
     ],
     "not": "Immobile pen dan 1 gol"
-  },
-  {
-    "id": 1775980116104,
-    "tarih": "2024-05-26",
-    "sezon": "2023-24",
-    "tur": "",
-    "takim1": "BeÃÂiktaÃÂ",
-    "takim2": "Trabzonspor",
-    "skor1": 3,
-    "skor2": 2,
-    "sonuc": "Mağlubiyet",
-    "golcular": [
-      "Rhacid Ghezzal",
-      "Salih Ucan",
-      "Al Musrati"
-    ],
-    "not": "Ghezzal pen 1 gol"
   }
 ]
