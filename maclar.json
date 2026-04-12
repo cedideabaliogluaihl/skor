@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776028831197,
+    "tarih": "2024-11-28",
+    "sezon": "2024-25",
+    "tur": "Avrupa Ligi",
+    "takim1": "Beşiktaş",
+    "takim2": "Maccabi Tel Aviv",
+    "skor1": 1,
+    "skor2": 3,
+    "sonuc": "Mağlubiyet",
+    "golcular": [
+      "Rafa Silva"
+    ],
+    "not": "38"
+  },
+  {
     "id": 1776028774669,
     "tarih": "2024-11-24",
     "sezon": "2024-25",
