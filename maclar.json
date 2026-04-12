@@ -1,5 +1,21 @@
 [
   {
+    "id": 1776028774669,
+    "tarih": "2024-11-24",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Goztepe",
+    "skor1": 2,
+    "skor2": 4,
+    "sonuc": "Mağlubiyet",
+    "golcular": [
+      "Semih Kılıcsoy",
+      "Kendi Kalesine"
+    ],
+    "not": "3/9"
+  },
+  {
     "id": 1776028707885,
     "tarih": "2024-11-10",
     "sezon": "2024-25",
