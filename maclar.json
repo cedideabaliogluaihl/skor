@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776029558781,
+    "tarih": "2025-01-07",
+    "sezon": "2024-25",
+    "tur": "Türkiye Kupası",
+    "takim1": "Beşiktaş",
+    "takim2": "Sivasspor",
+    "skor1": 1,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Rafa Silva"
+    ],
+    "not": "20"
+  },
+  {
     "id": 1776029269733,
     "tarih": "2025-01-03",
     "sezon": "2024-25",
