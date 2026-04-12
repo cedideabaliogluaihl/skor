@@ -1,5 +1,22 @@
 [
   {
+    "id": 1775980116104,
+    "tarih": "2024-05-26",
+    "sezon": "2023-24",
+    "tur": "Türkiye Kupası",
+    "takim1": "Beşiktaş",
+    "takim2": "Trabzonspor",
+    "skor1": 3,
+    "skor2": 2,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Rhacid Ghezzal",
+      "Salih Ucan",
+      "Al Musrati"
+    ],
+    "not": "Ghezzal penaltıdan attı"
+  },
+  {
     "id": 1775979913847,
     "tarih": "2024-08-03",
     "sezon": "2024-25",
