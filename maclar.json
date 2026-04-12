@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776028878205,
+    "tarih": "2024-12-02",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Hatayspor",
+    "skor1": 1,
+    "skor2": 1,
+    "sonuc": "Beraberlik",
+    "golcular": [
+      "Ciro Immobile"
+    ],
+    "not": "41"
+  },
+  {
     "id": 1776028831197,
     "tarih": "2024-11-28",
     "sezon": "2024-25",
