@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776028499572,
+    "tarih": "2024-10-24",
+    "sezon": "2024-25",
+    "tur": "Avrupa Ligi",
+    "takim1": "Beşiktaş",
+    "takim2": "Olympic Lyon",
+    "skor1": 1,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Gedson Fernandes"
+    ],
+    "not": "71"
+  },
+  {
     "id": 1776028436317,
     "tarih": "2024-10-20",
     "sezon": "2024-25",
