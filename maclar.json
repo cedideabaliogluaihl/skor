@@ -1,5 +1,21 @@
 [
   {
+    "id": 1776028681853,
+    "tarih": "2024-11-06",
+    "sezon": "2024-25",
+    "tur": "Avrupa Ligi",
+    "takim1": "Beşiktaş",
+    "takim2": "Malmö",
+    "skor1": 2,
+    "skor2": 1,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Ernest Muci",
+      "Semih Kılıcsoy"
+    ],
+    "not": "76/85"
+  },
+  {
     "id": 1776028583012,
     "tarih": "2024-11-02",
     "sezon": "2024-25",
