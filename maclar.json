@@ -1,5 +1,22 @@
 [
   {
+    "id": 1776028125717,
+    "tarih": "2024-09-30",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Kayserispor",
+    "skor1": 0,
+    "skor2": 0,
+    "sonuc": "Beraberlik",
+    "golcular": [
+      "Gedson Fernandes",
+      "Ciro Immobile",
+      "Ciro Immobile"
+    ],
+    "not": "56/78(p)/+1"
+  },
+  {
     "id": 1776028026900,
     "tarih": "2024-09-26",
     "sezon": "2024-25",
