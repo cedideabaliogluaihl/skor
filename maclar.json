@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776027828005,
+    "tarih": "2024-09-15",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Trabzonspor",
+    "skor1": 1,
+    "skor2": 1,
+    "sonuc": "Beraberlik",
+    "golcular": [
+      "Gedson Fernandes"
+    ],
+    "not": "39"
+  },
+  {
     "id": 1776027703860,
     "tarih": "2024-09-01",
     "sezon": "2024-25",
