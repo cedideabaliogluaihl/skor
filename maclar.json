@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776028921389,
+    "tarih": "2024-12-07",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Fenerbahçe",
+    "skor1": 1,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Alex Oxleid Chamberlein"
+    ],
+    "not": "73"
+  },
+  {
     "id": 1776028878205,
     "tarih": "2024-12-02",
     "sezon": "2024-25",
