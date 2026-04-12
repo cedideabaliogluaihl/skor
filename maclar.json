@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": 1776018616743,
+    "tarih": "2024-08-03",
+    "sezon": "2024-25",
+    "tur": "Süper Kupa",
+    "takim1": "Beşiktaş",
+    "takim2": "Galatasaray",
+    "skor1": 5,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Ciro Immobile",
+      "Jonas Svensson",
+      "Ciro İmmobile",
+      "Rafa Silva",
+      "Mustafa Hekimoglu"
+    ],
+    "not": "1/53/81(p)/+1/+4"
+  }
+]
