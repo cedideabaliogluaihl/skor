@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776029016437,
+    "tarih": "2024-12-16",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Adana Demirspor",
+    "skor1": 1,
+    "skor2": 2,
+    "sonuc": "Mağlubiyet",
+    "golcular": [
+      "Mustafa Al Musrati"
+    ],
+    "not": "72"
+  },
+  {
     "id": 1776028957725,
     "tarih": "2024-12-12",
     "sezon": "2024-25",
