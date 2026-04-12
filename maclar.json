@@ -1,5 +1,20 @@
 [
   {
+    "id": 1776028583012,
+    "tarih": "2024-11-02",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Kasımpasa",
+    "skor1": 1,
+    "skor2": 3,
+    "sonuc": "Mağlubiyet",
+    "golcular": [
+      "Ernest Muci"
+    ],
+    "not": "45+3"
+  },
+  {
     "id": 1776028547644,
     "tarih": "2024-10-28",
     "sezon": "2024-25",
