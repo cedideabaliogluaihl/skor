@@ -1,10 +1,29 @@
 [
   {
-    "id": 1776167956018,
+    "id": 1776171014506,
     "tarih": "2026-04-14",
     "sezon": "2024-25",
     "tur": "Süper Lig",
-    "takim1": "Beşiktaş",
+    "takim1": "Eskisehir",
+    "takim2": "Beşiktaş",
+    "skor1": 1,
+    "skor2": 5,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Ertugrul",
+      "Ertugrul",
+      "Ertugrul",
+      "Ertugrul",
+      "Ertugrul"
+    ],
+    "not": ""
+  },
+  {
+    "id": 1776167956018,
+    "tarih": "2026-04-14",
+    "sezon": "2024-25",
+    "tur": "SÃ¼per Lig",
+    "takim1": "BeÅiktaÅ",
     "takim2": "Galatasaray",
     "skor1": 5,
     "skor2": 0,
@@ -22,8 +41,8 @@
     "id": 1776167881503,
     "tarih": "2026-04-14",
     "sezon": "2024-25",
-    "tur": "Süper Lig",
-    "takim1": "Beşiktaş",
+    "tur": "SÃ¼per Lig",
+    "takim1": "BeÅiktaÅ",
     "takim2": "Fenerbahce",
     "skor1": 5,
     "skor2": 0,
