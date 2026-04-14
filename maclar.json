@@ -1,5 +1,24 @@
 [
   {
+    "id": 1776174709469,
+    "tarih": "2025-03-19",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Galatasaray",
+    "skor1": 5,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Ali Gultiken",
+      "Feyyaz Ucar",
+      "Feyyaz Ucar",
+      "Feyyaz Ucar",
+      "Metin Tekin"
+    ],
+    "not": ""
+  },
+  {
     "id": 1776174623214,
     "tarih": "2024-03-19",
     "sezon": "2024-25",
