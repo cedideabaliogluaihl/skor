@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "id": 1776167881503,
+    "tarih": "2026-04-14",
+    "sezon": "2024-25",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Fenerbahce",
+    "skor1": 0,
+    "skor2": 0,
+    "sonuc": "Beraberlik",
+    "golcular": [
+      "Orkun",
+      "Orkun",
+      "Orkun",
+      "Orkun",
+      "Orkun"
+    ],
+    "not": ""
+  }
+]
