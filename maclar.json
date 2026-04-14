@@ -1,5 +1,26 @@
 [
   {
+    "id": 1776174820541,
+    "tarih": "2022-03-19",
+    "sezon": "2021-22",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Trabzonspor",
+    "skor1": 7,
+    "skor2": 0,
+    "sonuc": "Galibiyet",
+    "golcular": [
+      "Mehmet Ozdilek",
+      "Mehmet Ozdilek",
+      "Feyyaz Ucar",
+      "Feyyaz Ucar",
+      "Metin Tekin",
+      "Feyyaz Ucar",
+      "Metin Tekin"
+    ],
+    "not": ""
+  },
+  {
     "id": 1776174709469,
     "tarih": "2025-03-19",
     "sezon": "2024-25",
