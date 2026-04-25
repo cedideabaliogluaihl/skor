@@ -32,18 +32,18 @@
   {
     "id": 1776977128214,
     "tarih": "2026-04-23",
-    "sezon": "2024-25",
+    "sezon": "2025-26",
     "tur": "Türkiye Kupası",
     "takim1": "Beşiktaş",
     "takim2": "Alanyaspor",
     "skor1": 3,
     "skor2": 0,
-    "sonuc": "Galibiyet",
     "golcular": [
       "El Bilal Toure",
       "Hyeon Gyu Oh",
       "Orkun Kokcu"
     ],
-    "not": ""
+    "not": "",
+    "sonuc": "Galibiyet"
   }
 ]
