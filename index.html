@@ -125,7 +125,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="row2">
       <div class="field"><label>Tarih</label><input type="date" id="f-tarih"></div>
       <div class="field"><label>Sezon</label>
-        <select id="f-sezon">
+        <div style="display:flex;gap:6px;align-items:center">
+          <select id="f-sezon" style="flex:1;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;color:#1a1a1a;-webkit-appearance:none">
           <option value="2025-26">2025-26</option>
           <option value="2024-25">2024-25</option>
           <option value="2023-24">2023-24</option>
@@ -204,52 +205,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
           <option value="1950-51">1950-51</option>
           <option value="1949-50">1949-50</option>
           <option value="1948-49">1948-49</option>
-          <option value="1947-48">1947-48</option>
-          <option value="1946-47">1946-47</option>
-          <option value="1945-46">1945-46</option>
-          <option value="1944-45">1944-45</option>
-          <option value="1943-44">1943-44</option>
-          <option value="1942-43">1942-43</option>
-          <option value="1941-42">1941-42</option>
-          <option value="1940-41">1940-41</option>
-          <option value="1939-40">1939-40</option>
-          <option value="1938-39">1938-39</option>
-          <option value="1937-38">1937-38</option>
-          <option value="1936-37">1936-37</option>
-          <option value="1935-36">1935-36</option>
-          <option value="1934-35">1934-35</option>
-          <option value="1933-34">1933-34</option>
-          <option value="1932-33">1932-33</option>
-          <option value="1931-32">1931-32</option>
-          <option value="1930-31">1930-31</option>
-          <option value="1929-30">1929-30</option>
-          <option value="1928-29">1928-29</option>
-          <option value="1927-28">1927-28</option>
-          <option value="1926-27">1926-27</option>
-          <option value="1925-26">1925-26</option>
-          <option value="1924-25">1924-25</option>
-          <option value="1923-24">1923-24</option>
-          <option value="1922-23">1922-23</option>
-          <option value="1921-22">1921-22</option>
-          <option value="1920-21">1920-21</option>
-          <option value="1919-20">1919-20</option>
-          <option value="1918-19">1918-19</option>
-          <option value="1917-18">1917-18</option>
-          <option value="1916-17">1916-17</option>
-          <option value="1915-16">1915-16</option>
-          <option value="1914-15">1914-15</option>
-          <option value="1913-14">1913-14</option>
-          <option value="1912-13">1912-13</option>
-          <option value="1911-12">1911-12</option>
-          <option value="1910-11">1910-11</option>
-          <option value="1909-10">1909-10</option>
-          <option value="1908-09">1908-09</option>
-          <option value="1907-08">1907-08</option>
-          <option value="1906-07">1906-07</option>
-          <option value="1905-06">1905-06</option>
-          <option value="1904-05">1904-05</option>
-          <option value="1903-04">1903-04</option>
-        </select>
+          </select>
+          <button type="button" onclick="sezonEkle()" style="padding:10px 12px;background:#1a5c1a;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">+ Yeni</button>
+        </div>
       </div>
     </div>
     <div class="field"><label>Maç türü</label>
@@ -648,6 +606,18 @@ function renderIstat(){
 
 function renderAll(){renderListe();renderIstat();}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+
+function sezonEkle(){
+  const yeni=prompt('Yeni sezonu gir (örn: 2026-27):');
+  if(!yeni||!yeni.trim())return;
+  const s=yeni.trim();
+  const sel=document.getElementById('f-sezon');
+  for(let o of sel.options){if(o.value===s){sel.value=s;return;}}
+  const opt=document.createElement('option');
+  opt.value=s;opt.textContent=s;
+  sel.insertBefore(opt,sel.firstChild);
+  sel.value=s;
+}
 
 // Init
 document.getElementById('f-tarih').valueAsDate=new Date();
