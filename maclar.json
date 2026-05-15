@@ -1,1 +1,17 @@
-W10=
+[
+  {
+    "id": 1778827301360,
+    "tarih": "2026-05-15",
+    "sezon": "2025-26",
+    "tur": "Süper Lig",
+    "takim1": "Beşiktaş",
+    "takim2": "Rizespor",
+    "skor1": 1,
+    "skor2": 0,
+    "golcular": [
+      "ali"
+    ],
+    "not": "",
+    "sonuc": "Galibiyet"
+  }
+]
