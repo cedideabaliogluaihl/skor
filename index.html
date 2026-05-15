@@ -379,16 +379,22 @@ async function loadData(){
 
 async function saveData(){
   if(!checkToken())return;
-  const json=JSON.stringify(maclar,null,2);
-  const content=b64encode(json); // Türkçe güvenli encode
   try{
+    // Her kayıt öncesi güncel sha al (çakışmayı önler)
+    const check=await fetch(API,{headers:{'Authorization':'token '+getToken(),'Accept':'application/vnd.github.v3+json'}});
+    if(check.status===401){localStorage.removeItem('gh_token');checkToken();return;}
+    const cur=await check.json();
+    fileSha=cur.sha; // Her zaman güncel sha kullan
+    const json=JSON.stringify(maclar,null,2);
+    const content=b64encode(json);
     const r=await fetch(API,{method:'PUT',headers:{'Authorization':'token '+getToken(),'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},body:JSON.stringify({message:'Maç güncellendi',content,sha:fileSha})});
     if(r.status===401){localStorage.removeItem('gh_token');checkToken();return;}
+    if(!r.ok){const e=await r.json();toast('Hata: '+e.message);return;}
     const d=await r.json();
     fileSha=d.content.sha;
     toast('Kaydedildi ✓');
     populateFilters();
-  }catch(e){toast('Kayıt hatası!');}
+  }catch(e){console.error(e);toast('Kayıt hatası: '+e.message);}
 }
 
 // ─── Filtreler ───────────────────────────────────────────
@@ -608,15 +614,17 @@ function renderAll(){renderListe();renderIstat();}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 
 function sezonEkle(){
-  const yeni=prompt('Yeni sezonu gir (örn: 2026-27):');
+  let yeni=prompt('Yeni sezonu gir (örn: 2026-27):');
   if(!yeni||!yeni.trim())return;
-  const s=yeni.trim();
+  // Otomatik format düzeltme: 2026-2027 → 2026-27
+  yeni=yeni.trim().replace(/^(\d{4})-(\d{4})$/,(_,a,b)=>a+'-'+b.slice(-2));
+  if(!/^\d{4}-\d{2}$/.test(yeni)){alert('Lütfen doğru format gir: 2026-27');return;}
   const sel=document.getElementById('f-sezon');
-  for(let o of sel.options){if(o.value===s){sel.value=s;return;}}
+  for(let o of sel.options){if(o.value===yeni){sel.value=yeni;return;}}
   const opt=document.createElement('option');
-  opt.value=s;opt.textContent=s;
+  opt.value=yeni;opt.textContent=yeni;
   sel.insertBefore(opt,sel.firstChild);
-  sel.value=s;
+  sel.value=yeni;
 }
 
 // Init
