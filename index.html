@@ -117,6 +117,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <button class="tab active" onclick="showPage('giris',this)">Maç Girişi</button>
   <button class="tab" onclick="showPage('liste',this)">Maçlar</button>
   <button class="tab" onclick="showPage('istat',this)">İstatistik</button>
+  <button class="tab" onclick="showPage('sezon',this)">Sezon</button>
 </div>
 
 <div id="page-giris" class="page active">
@@ -278,6 +279,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <div id="page-istat" class="page">
+  <div class="card" id="sezon-istat-kart">
+    <div class="card-title">Kupa ve Şampiyonluk</div>
+    <div class="empty">Sezon bilgisi girilmedi</div>
+  </div>
   <div class="filter-bar">
     <select id="is-sezon" onchange="renderIstat()"><option value="">Tüm sezonlar</option></select>
     <select id="is-tur" onchange="renderIstat()"><option value="">Tüm maç türleri</option></select>
@@ -301,6 +306,65 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 </div>
 
+
+<div id="page-sezon" class="page">
+  <div class="card">
+    <div class="card-title" id="sezon-form-title">Sezon bilgisi ekle</div>
+    <div class="row2">
+      <div class="field"><label>Sezon</label>
+        <select id="sf-sezon" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;color:#1a1a1a;-webkit-appearance:none">
+        </select>
+      </div>
+      <div class="field"><label>Süper Lig Sırası</label>
+        <input type="number" id="sf-sira" min="1" max="20" placeholder="1" style="width:100%">
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field"><label>Şampiyonluk</label>
+        <select id="sf-sampiyonluk" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;-webkit-appearance:none">
+          <option value="hayir">Hayır</option>
+          <option value="evet">Evet 🏆</option>
+        </select>
+      </div>
+      <div class="field"><label>Türkiye Kupası</label>
+        <select id="sf-kupa" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;-webkit-appearance:none">
+          <option value="-">Katılmadı / Erken elendi</option>
+          <option value="son16">Son 16</option>
+          <option value="ceyrek">Çeyrek Final</option>
+          <option value="yari">Yarı Final</option>
+          <option value="finalist">Finalist</option>
+          <option value="sampiyon">Şampiyon 🏆</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Avrupa</label>
+      <select id="sf-avrupa" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;-webkit-appearance:none">
+        <option value="-">Katılmadı</option>
+        <option value="eleme">Eleme turunda elendi</option>
+        <option value="gruplar">Grup aşaması</option>
+        <option value="son32">Son 32</option>
+        <option value="son16">Son 16</option>
+        <option value="ceyrek">Çeyrek Final</option>
+        <option value="yari">Yarı Final</option>
+        <option value="finalist">Finalist</option>
+        <option value="sampiyon">Şampiyon 🏆</option>
+      </select>
+    </div>
+    <div class="field"><label>Not</label>
+      <textarea id="sf-not" placeholder="O sezonla ilgili notlar..." style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;resize:vertical;min-height:60px"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="saveSezonBilgi()">Kaydet</button>
+      <button class="btn btn-secondary" onclick="clearSezonForm()">Temizle</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Sezon arşivi</div>
+    <div id="sezon-liste"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -310,6 +374,9 @@ const SABIT='Beşiktaş';
 const ONERI=['Beşiktaş','Galatasaray','Fenerbahçe','Trabzonspor','Başakşehir','Kayserispor','Sivasspor','Ankaragücü','Konyaspor','Alanyaspor','Gaziantep FK','Kasımpaşa','Hatayspor','Rizespor','Adana Demirspor','Samsunspor','Ajax','Porto','Sporting','Benfica','Monaco','Olympiakos'];
 
 let maclar=[],fileSha=null,editId=null;
+let sezonBilgiler=[],sezonSha=null;
+const SEZON_FILE='sezonlar.json';
+const SEZON_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/${SEZON_FILE}`;
 
 // ─── Türkçe güvenli base64 ───────────────────────────────
 function b64decode(str){
@@ -374,6 +441,7 @@ async function loadData(){
     toast('Veriler yüklendi ✓');
     populateFilters();
     renderAll();
+    await loadSezonBilgi();
   }catch(e){console.error(e);toast('Bağlantı hatası: '+e.message);}
 }
 
@@ -395,6 +463,130 @@ async function saveData(){
     toast('Kaydedildi ✓');
     populateFilters();
   }catch(e){console.error(e);toast('Kayıt hatası: '+e.message);}
+}
+
+
+// ─── Sezon Bilgileri ─────────────────────────────────────
+async function loadSezonBilgi(){
+  if(!checkToken())return;
+  try{
+    const r=await fetch(SEZON_API,{headers:{'Authorization':'token '+getToken(),'Accept':'application/vnd.github.v3+json'}});
+    if(r.status===404){sezonBilgiler=[];sezonSha=null;return;}
+    if(r.status===401){return;}
+    const d=await r.json();
+    sezonSha=d.sha;
+    sezonBilgiler=JSON.parse(b64decode(d.content));
+    renderSezonListe();
+    renderSezonIstat();
+  }catch(e){sezonBilgiler=[];}
+}
+
+async function saveSezonBilgi(){
+  if(!checkToken())return;
+  const sezon=document.getElementById('sf-sezon').value;
+  const sira=parseInt(document.getElementById('sf-sira').value)||null;
+  const bilgi={sezon,sira,sampiyonluk:document.getElementById('sf-sampiyonluk').value,kupa:document.getElementById('sf-kupa').value,avrupa:document.getElementById('sf-avrupa').value,not:document.getElementById('sf-not').value.trim()};
+  const idx=sezonBilgiler.findIndex(s=>s.sezon===sezon);
+  if(idx>=0)sezonBilgiler[idx]=bilgi;else sezonBilgiler.push(bilgi);
+  sezonBilgiler.sort((a,b)=>b.sezon.localeCompare(a.sezon));
+  const json=JSON.stringify(sezonBilgiler,null,2);
+  const content=b64encode(json);
+  try{
+    const check=await fetch(SEZON_API,{headers:{'Authorization':'token '+getToken(),'Accept':'application/vnd.github.v3+json'}});
+    let sha=null;
+    if(check.ok){const cd=await check.json();sha=cd.sha;}
+    const body={message:'Sezon güncellendi',content};
+    if(sha)body.sha=sha;
+    const r=await fetch(SEZON_API,{method:'PUT',headers:{'Authorization':'token '+getToken(),'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(d.content)sezonSha=d.content.sha;
+    toast('Sezon kaydedildi ✓');
+    renderSezonListe();
+    renderSezonIstat();
+  }catch(e){toast('Kayıt hatası!');}
+}
+
+function clearSezonForm(){
+  document.getElementById('sf-sira').value='';
+  document.getElementById('sf-sampiyonluk').value='hayir';
+  document.getElementById('sf-kupa').value='-';
+  document.getElementById('sf-avrupa').value='-';
+  document.getElementById('sf-not').value='';
+}
+
+function populateSezonSelect(){
+  const seasons=[...new Set([...sezonBilgiler.map(s=>s.sezon),...maclar.map(m=>m.sezon).filter(Boolean)])];
+  const allSeasons=[];
+  for(let y=2025;y>=1948;y--)allSeasons.push(`${y}-${String(y+1).slice(-2)}`);
+  const merged=[...new Set([...seasons,...allSeasons])].sort().reverse();
+  const sel=document.getElementById('sf-sezon');
+  sel.innerHTML=merged.map(s=>`<option value="${s}">${s}</option>`).join('');
+}
+
+function editSezon(sezon){
+  const b=sezonBilgiler.find(s=>s.sezon===sezon);if(!b)return;
+  document.getElementById('sf-sezon').value=b.sezon;
+  document.getElementById('sf-sira').value=b.sira||'';
+  document.getElementById('sf-sampiyonluk').value=b.sampiyonluk||'hayir';
+  document.getElementById('sf-kupa').value=b.kupa||'-';
+  document.getElementById('sf-avrupa').value=b.avrupa||'-';
+  document.getElementById('sf-not').value=b.not||'';
+  window.scrollTo(0,0);
+}
+
+async function deleteSezon(sezon){
+  if(!confirm(sezon+' sezon bilgisini silmek istediğinize emin misiniz?'))return;
+  sezonBilgiler=sezonBilgiler.filter(s=>s.sezon!==sezon);
+  const json=JSON.stringify(sezonBilgiler,null,2);
+  const content=b64encode(json);
+  try{
+    const check=await fetch(SEZON_API,{headers:{'Authorization':'token '+getToken(),'Accept':'application/vnd.github.v3+json'}});
+    let sha=null;if(check.ok){const cd=await check.json();sha=cd.sha;}
+    const body={message:'Sezon silindi',content};if(sha)body.sha=sha;
+    await fetch(SEZON_API,{method:'PUT',headers:{'Authorization':'token '+getToken(),'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},body:JSON.stringify(body)});
+    toast('Silindi');renderSezonListe();renderSezonIstat();
+  }catch(e){toast('Hata!');}
+}
+
+const KUPA_LABEL={'-':'—','son16':'Son 16','ceyrek':'Çeyrek Final','yari':'Yarı Final','finalist':'Finalist','sampiyon':'Şampiyon 🏆'};
+const AVRUPA_LABEL={'-':'—','eleme':'Eleme','gruplar':'Grup aşaması','son32':'Son 32','son16':'Son 16','ceyrek':'Çeyrek Final','yari':'Yarı Final','finalist':'Finalist','sampiyon':'Şampiyon 🏆'};
+
+function renderSezonListe(){
+  const wrap=document.getElementById('sezon-liste');
+  if(!wrap)return;
+  if(!sezonBilgiler.length){wrap.innerHTML='<div class="empty">Henüz sezon bilgisi girilmedi</div>';return;}
+  wrap.innerHTML=sezonBilgiler.map(b=>`
+    <div style="padding:12px 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:14px;color:#0d2b0d;margin-bottom:4px">${b.sezon} ${b.sampiyonluk==='evet'?'🏆':''}</div>
+        <div style="font-size:12px;color:#555;line-height:1.8">
+          ${b.sira?'<span style="margin-right:12px">📊 '+b.sira+'. sıra</span>':''}
+          ${b.kupa&&b.kupa!=='-'?'<span style="margin-right:12px">🥊 Kupa: '+KUPA_LABEL[b.kupa]+'</span>':''}
+          ${b.avrupa&&b.avrupa!=='-'?'<span>🌍 Avrupa: '+AVRUPA_LABEL[b.avrupa]+'</span>':''}
+        </div>
+        ${b.not?'<div style="font-size:12px;color:#888;margin-top:4px;font-style:italic">'+b.not+'</div>':''}
+      </div>
+      <div style="display:flex;gap:6px;flex-shrink:0">
+        <button class="btn-edit" onclick="editSezon('${b.sezon}')">Düzenle</button>
+        <button class="btn-del" onclick="deleteSezon('${b.sezon}')">Sil</button>
+      </div>
+    </div>`).join('');
+}
+
+function renderSezonIstat(){
+  const sampiyonluklar=sezonBilgiler.filter(s=>s.sampiyonluk==='evet');
+  const kupalar=sezonBilgiler.filter(s=>s.kupa==='sampiyon');
+  const avrupalar=sezonBilgiler.filter(s=>s.avrupa==='sampiyon');
+  const el=document.getElementById('sezon-istat-kart');
+  if(!el)return;
+  el.innerHTML=`
+    <div class="stats-grid" style="margin-bottom:0">
+      <div class="stat gal"><div class="stat-val">${sampiyonluklar.length}</div><div class="stat-lbl">Süper Lig Şampiyonluğu</div></div>
+      <div class="stat gal"><div class="stat-val">${kupalar.length}</div><div class="stat-lbl">Türkiye Kupası</div></div>
+      <div class="stat gal"><div class="stat-val">${avrupalar.length}</div><div class="stat-lbl">Avrupa Kupası</div></div>
+      <div class="stat"><div class="stat-val">${sezonBilgiler.filter(s=>s.sira===1).length}</div><div class="stat-lbl">Şampiyonluk sezonu</div></div>
+    </div>
+    ${sampiyonluklar.length?'<div style="margin-top:12px;font-size:12px;color:#555"><strong>Şampiyonluk sezonları:</strong> '+sampiyonluklar.map(s=>s.sezon).join(', ')+'</div>':''}`;
 }
 
 // ─── Filtreler ───────────────────────────────────────────
@@ -432,7 +624,7 @@ function showPage(p,btn){
   document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.getElementById('page-'+p).classList.add('active');btn.classList.add('active');
-  if(p==='liste')renderListe();if(p==='istat')renderIstat();
+  if(p==='liste')renderListe();if(p==='istat')renderIstat();if(p==='sezon'){populateSezonSelect();renderSezonListe();}
 }
 function addGolcu(){
   const row=document.createElement('div');row.className='golcu-row';
