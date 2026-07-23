@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": 1784840824562,
+    "tarih": "2026-07-23",
+    "sezon": "2026-27",
+    "tur": "Avrupa Ligi",
+    "takim1": "Beşiktaş",
+    "takim2": "Midtjylland",
+    "skor1": 1,
+    "skor2": 0,
+    "golcular": [
+      "Orkun Kökçü"
+    ],
+    "not": "",
+    "sonuc": "Galibiyet"
+  }
+]
